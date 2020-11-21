@@ -1,0 +1,32 @@
+function [img_texture1, img_texture2, img_texture3, img_texture4, img_texture5, ...
+          img_texture6, img_texture7, img_texture8, img_texture9] = lawsMethod(img_original)
+    window_size = [13 13];
+    img_original = img_original / 255;
+    law1 = [1 2 1; 2 4 2; 1 2 1];
+    img_micro1 = mask(img_original, law1, 36);
+    img_texture1 = mask(img_micro1.^2, ones(window_size), 1);
+    law2 = [1 0 -1; 2 0 -2; 1 0 -1];
+    img_micro2 = mask(img_original, law2, 12);
+    img_texture2 = mask(img_micro2.^2, ones(window_size), 1);
+    law3 = [-1 2 -1; -2 4 -2; -1 2 -1];
+    img_micro3 = mask(img_original, law3, 12);
+    img_texture3 = mask(img_micro3.^2, ones(window_size), 1);
+    law4 = [-1 -2 -1; 0 0 0; 1 2 1];
+    img_micro4 = mask(img_original, law4, 12);
+    img_texture4 = mask(img_micro4.^2, ones(window_size), 1);
+    law5 = [1 0 -1; 0 0 0; -1 0 1];
+    img_micro5 = mask(img_original, law5, 4);
+    img_texture5 = mask(img_micro5.^2, ones(window_size), 1);
+    law6 = [-1 2 -1; 0 0 0; 1 -2 1];
+    img_micro6 = mask(img_original, law6, 4);
+    img_texture6 = mask(img_micro6.^2, ones(window_size), 1);
+    law7 = [-1 -2 -1; 2 4 2; -1 -2 -1];
+    img_micro7 = mask(img_original, law7, 12);
+    img_texture7 = mask(img_micro7.^2, ones(window_size), 1);
+    law8 = [-1 0 1; 2 0 -2; -1 0 1];
+    img_micro8 = mask(img_original, law8, 4);
+    img_texture8 = mask(img_micro8.^2, ones(window_size), 1);
+    law9 = [1 -2 1; -2 4 -2; 1 -2 1];
+    img_micro9 = mask(img_original, law9, 4);
+    img_texture9 = mask(img_micro9.^2, ones(window_size), 1);
+end
